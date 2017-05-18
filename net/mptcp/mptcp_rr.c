@@ -189,6 +189,7 @@ static struct sk_buff *mptcp_rr_next_segment(struct sock *meta_sk,
 		return NULL;
 
 	if (*reinject) {
+		mptcp_debug("mptcp_rr_next_segment: is reinject\n");
 		*subsk = rr_get_available_subflow(meta_sk, skb, false);
 		if (!*subsk)
 			return NULL;
